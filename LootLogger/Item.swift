@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Item {
+class Item: Equatable {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
@@ -18,6 +18,13 @@ class Item {
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
         self.dateCreated = Date()
+    }
+    
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.name == rhs.name
+        && lhs.serialNumber == rhs.serialNumber
+        && lhs.valueInDollars == rhs.valueInDollars
+        && lhs.dateCreated == rhs.dateCreated
     }
     
     convenience init(random: Bool = false) {
