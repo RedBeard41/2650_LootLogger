@@ -23,6 +23,14 @@ class ItemStore {
         }
     }
     
+    func moveItem(at sourceIndex: Int, to destinationIndex: Int) {
+        if sourceIndex == destinationIndex {
+            return
+        }
+        let movedItem = allItems.remove(at: sourceIndex)
+        allItems.insert(movedItem, at: destinationIndex)
+    }
+    
 //    init() {
 //        for _ in 0..<50 {
 //            createItem()
