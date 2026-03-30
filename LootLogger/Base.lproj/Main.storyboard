@@ -82,6 +82,11 @@
                                         <constraint firstItem="gPM-iB-aLt" firstAttribute="centerY" secondItem="2Y4-wp-E45" secondAttribute="centerY" id="cnR-b3-R9B"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Dfn-RI-mWo" id="qbI-Ud-J0z"/>
+                                    <outlet property="serialNumberLabel" destination="Cf2-4l-GQE" id="UnO-ot-ggP"/>
+                                    <outlet property="valueLabel" destination="gPM-iB-aLt" id="ZE3-aw-Ui2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
