@@ -88,7 +88,7 @@
                                     <outlet property="nameLabel" destination="Dfn-RI-mWo" id="qbI-Ud-J0z"/>
                                     <outlet property="serialNumberLabel" destination="Cf2-4l-GQE" id="UnO-ot-ggP"/>
                                     <outlet property="valueLabel" destination="gPM-iB-aLt" id="ZE3-aw-Ui2"/>
-                                    <segue destination="hde-7Z-3Tz" kind="show" id="okr-9x-ykO"/>
+                                    <segue destination="hde-7Z-3Tz" kind="show" identifier="showItem" id="okr-9x-ykO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="-92.36641221374046" y="70.422535211267615"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="MRb-bX-UA6">
             <objects>
-                <viewController id="hde-7Z-3Tz" sceneMemberID="viewController">
+                <viewController id="hde-7Z-3Tz" customClass="DetailViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vFT-Rf-Oec">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,6 +184,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="p0p-3L-vlL"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="ymn-9r-9Sz" id="oOT-bR-qlO"/>
+                        <outlet property="nameField" destination="YoH-fc-w8o" id="j7B-zf-ydD"/>
+                        <outlet property="serialNumberField" destination="7Cx-dG-J94" id="RDe-Yt-9vS"/>
+                        <outlet property="valueField" destination="sRB-2j-kAV" id="euA-1h-Nbb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upc-1z-y7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
