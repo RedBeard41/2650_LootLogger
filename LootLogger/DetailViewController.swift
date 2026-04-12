@@ -19,6 +19,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     var item: Item!
     
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -46,6 +50,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
+        
         item.name = nameField.text ?? ""
         item.serialNumber = serialNumberField.text ?? ""
         if let valueText = valueField.text, let value = numberFormatter.number(from: valueText) {
