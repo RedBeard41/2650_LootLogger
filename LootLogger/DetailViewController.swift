@@ -17,7 +17,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var dateLabel: UILabel!
     
-    var item: Item!
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)

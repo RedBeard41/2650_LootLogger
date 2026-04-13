@@ -3,12 +3,13 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Items View Controller-->
+        <!--LootLogger-->
         <scene sceneID="34M-Pu-XE6">
             <objects>
                 <tableViewController id="ygS-Pr-YQ8" customClass="ItemsViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,40 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="85A-Xw-S5e">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT8-OE-Nbb">
-                                    <rect key="frame" x="8" y="12.666666666666664" width="184.66666666666666" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="ygS-Pr-YQ8" eventType="touchUpInside" id="qNr-nU-TNl"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiT-6H-6s5">
-                                    <rect key="frame" x="200.66666666666663" y="12.666666666666664" width="184.33333333333337" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                    <connections>
-                                        <action selector="addNewItem:" destination="ygS-Pr-YQ8" eventType="touchUpInside" id="Evc-eW-TUT"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="iT8-OE-Nbb" firstAttribute="leading" secondItem="85A-Xw-S5e" secondAttribute="leading" constant="8" id="4CK-M9-YON"/>
-                                <constraint firstAttribute="trailing" secondItem="iiT-6H-6s5" secondAttribute="trailing" constant="8" id="74g-Q4-dT7"/>
-                                <constraint firstItem="iiT-6H-6s5" firstAttribute="leading" secondItem="iT8-OE-Nbb" secondAttribute="trailing" constant="8" id="Ozs-Hc-LUh"/>
-                                <constraint firstItem="iiT-6H-6s5" firstAttribute="centerY" secondItem="85A-Xw-S5e" secondAttribute="centerY" id="XMM-a9-odc"/>
-                                <constraint firstItem="iT8-OE-Nbb" firstAttribute="centerY" secondItem="85A-Xw-S5e" secondAttribute="centerY" id="kTW-pp-Xte"/>
-                                <constraint firstItem="iiT-6H-6s5" firstAttribute="width" secondItem="iT8-OE-Nbb" secondAttribute="width" id="m8r-jM-Zlx"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="YnQ-RX-gsu" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110" width="393" height="65"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YnQ-RX-gsu" id="2Y4-wp-E45">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
@@ -97,7 +67,14 @@
                             <outlet property="delegate" destination="ygS-Pr-YQ8" id="P4I-HW-B4e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FQq-F9-ydh"/>
+                    <navigationItem key="navigationItem" title="LootLogger" id="9gf-FJ-Vna">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="BfU-TL-iCB">
+                            <imageReference key="image" image="plus.app" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="addNewItem:" destination="ygS-Pr-YQ8" id="5z0-3F-HJQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCS-AV-K2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,12 +163,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d3H-OC-1ZB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="d3H-OC-1ZB" firstAttribute="bottom" secondItem="FeN-1A-qf9" secondAttribute="bottom" constant="8" id="1LO-m5-hSJ"/>
                             <constraint firstItem="FeN-1A-qf9" firstAttribute="top" secondItem="d3H-OC-1ZB" secondAttribute="top" constant="8" id="AJP-25-lJ3"/>
                             <constraint firstItem="d3H-OC-1ZB" firstAttribute="trailing" secondItem="FeN-1A-qf9" secondAttribute="trailing" constant="8" id="m0M-98-Lwx"/>
                             <constraint firstItem="FeN-1A-qf9" firstAttribute="leading" secondItem="d3H-OC-1ZB" secondAttribute="leading" constant="8" id="zM8-hz-V6y"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hlE-TM-DoJ" appends="YES" id="CSd-UU-Qw2"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="p0p-3L-vlL"/>
                     <connections>
@@ -202,6 +183,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upc-1z-y7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hlE-TM-DoJ">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="hde-7Z-3Tz" id="6FX-qA-avW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1646.5648854961833" y="69.718309859154928"/>
         </scene>
@@ -225,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

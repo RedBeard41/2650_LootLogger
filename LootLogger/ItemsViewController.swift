@@ -11,7 +11,7 @@ class ItemsViewController: UITableViewController {
     
     var itemStore: ItemStore!
     
-    @IBAction func addNewItem(_ sender: UIButton) {
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
         
         if let index = itemStore.allItems.firstIndex(of: newItem) {
@@ -21,16 +21,12 @@ class ItemsViewController: UITableViewController {
         
     }
     
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        }
-        else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
-       
+
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 
     override func viewDidLoad() {
