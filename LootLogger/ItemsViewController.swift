@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController {
+class ItemsViewController: UITableViewController
+{
     
     var itemStore: ItemStore!
     
@@ -76,19 +77,20 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItem(at: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         switch segue.identifier! {
-            case "showItem":
-                if let row = tableView.indexPathForSelectedRow?.row {
-                    let item = itemStore.allItems[row]
-                    let detailViewController = segue.destination as! DetailViewController
-                    detailViewController.item = item
+        case "showItem":
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
                 
-                }
-            default :
-                preconditionFailure("Unhandled segue identifier: \(segue.identifier!)")
+            }
+        default :
+            preconditionFailure("Unhandled segue identifier: \(segue.identifier!)")
         }
     }
+    
 
 }
 
